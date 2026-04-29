@@ -1,6 +1,8 @@
 # FridgeChef Documentation
 
 - [2026-04-29 09:18]: **Inizio Progetto**
+  - *Details*: Fixed a critical bug in the pantry addition form. A missing variable declaration (`fridgeIngredients`) was causing the entire JavaScript initialization to fail, preventing event listeners from attaching and causing the page to reload on form submission.
+  - *Tech Notes*: Resolved ReferenceError in `init()`. Cleaned up redundant `commonPantry` constant. Verified build stability.
   - *Details*: Creato un sito web moderno per la generazione di ricette basate sugli ingredienti disponibili.
   - *Tech Notes*: 
     - Framework: Vite (Vanilla JS).
