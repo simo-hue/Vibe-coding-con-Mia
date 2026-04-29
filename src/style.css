@@ -356,36 +356,40 @@ button.primary:hover {
   transform: scale(1.1);
 }
 
-/* Gourmet Dial Range Slider Styling (Proposta B) */
 .slider-container {
   width: 100%;
-  padding: 1rem 0.5rem;
-  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .slider-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: 12px;
-  padding: 0 5px;
+  padding: 0 4px;
   font-size: 0.75rem;
   font-weight: 300;
   color: var(--text-muted);
   font-family: 'Outfit', sans-serif;
+  opacity: 0.8;
 }
 
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;
   height: 8px;
-  background: rgba(255, 255, 255, 0.05); /* Base track color */
-  border-radius: 4px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
   outline: none;
   cursor: pointer;
-  margin: 10px 0;
+  margin: 0;
+  padding: 0;
+  /* Removal of any browser default styles that might cause the 'fixed line' */
+  border: none;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -393,13 +397,15 @@ input[type=range]::-webkit-slider-thumb {
   appearance: none;
   width: 24px;
   height: 24px;
-  background: #fdfdfd; /* Milky white */
+  background: #ffffff;
   border: 2px solid var(--accent-bronze);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  margin-top: -8px; /* Correct alignment for 8px track */
+  margin-top: -8px; 
+  position: relative;
+  z-index: 2;
 }
 
 input[type=range]:hover::-webkit-slider-thumb {

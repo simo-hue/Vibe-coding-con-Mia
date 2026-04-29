@@ -67,18 +67,20 @@ function updateSliderTrack() {
   const min = parseInt(timeSlider.min) || 5;
   const max = parseInt(timeSlider.max) || 120;
   const val = parseInt(timeSlider.value);
-  const percentage = Math.min(Math.max(((val - min) / (max - min)) * 100, 0), 100);
   
-  // Clean Hard-stop Gradient: No bleeding or ghosting
+  // Calculate percentage for the gradient fill
+  const percentage = ((val - min) / (max - min)) * 100;
+  
+  // High-precision hard-stop gradient to avoid bleeding and ensure end-to-end coverage
   timeSlider.style.background = `linear-gradient(to right, 
     var(--primary-color) 0%, 
     var(--primary-color) ${percentage}%, 
     rgba(255, 255, 255, 0.05) ${percentage}%, 
     rgba(255, 255, 255, 0.05) 100%)`;
     
-  // Subtler, more professional glow
-  const glowIntensity = (percentage / 100) * 15;
-  timeSlider.style.boxShadow = `inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 ${glowIntensity}px var(--primary-glow)`;
+  // Subtle shadow/glow that follows the thumb
+  const glow = (percentage / 100) * 10;
+  timeSlider.style.boxShadow = `inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 ${glow}px var(--primary-glow)`;
 }
 
 // Init
