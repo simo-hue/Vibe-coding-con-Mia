@@ -58,6 +58,9 @@ const shoppingInput = document.getElementById('shopping-input');
 const shoppingListContainer = document.getElementById('shopping-list-container');
 const timeSlider = document.getElementById('time-slider');
 const timeVal = document.getElementById('time-val');
+const recipeModal = document.getElementById('recipe-modal');
+const closeModal = document.getElementById('close-modal');
+const modalBody = document.getElementById('modal-body');
 
 // Init
 function init() {
@@ -68,6 +71,14 @@ function init() {
     timeSlider.value = maxTime;
     timeVal.innerText = maxTime;
   }
+
+  // Modal close events
+  if (closeModal) {
+    closeModal.onclick = () => recipeModal.classList.remove('active');
+  }
+  window.onclick = (e) => {
+    if (e.target === recipeModal) recipeModal.classList.remove('active');
+  };
 
   renderPantry();
   renderFridgeTags();
