@@ -2,10 +2,34 @@ import './style.css'
 import { recipes } from './recipes.js'
 
 // State
-let fridgeIngredients = ["Pomodoro", "Pasta"];
-let pantryIngredients = ["Olio", "Sale", "Aglio"];
+let fridgeIngredients = [];
+let pantryIngredients = ["Olio", "Sale", "Aglio"]; // Default basics
 let shoppingList = [];
-let activeTab = 'recipes'; // 'recipes' or 'shopping'
+let activeTab = 'recipes';
+
+// Persistence Functions
+function saveState() {
+  const state = {
+    fridgeIngredients,
+    pantryIngredients,
+    shoppingList
+  };
+  localStorage.setItem('fridgeChefState', JSON.stringify(state));
+}
+
+function loadState() {
+  const saved = localStorage.getItem('fridgeChefState');
+  if (saved) {
+    try {
+      const state = JSON.parse(saved);
+      fridgeIngredients = state.fridgeIngredients || [];
+      pantryIngredients = state.pantryIngredients || ["Olio", "Sale", "Aglio"];
+      shoppingList = state.shoppingList || [];
+    } catch (e) {
+      console.error("Error loading state", e);
+    }
+  }
+}
 
 const commonPantry = [
   "Olio", "Sale", "Pepe", "Zucchero", "Farina", "Pasta", "Riso", 
@@ -32,6 +56,7 @@ const shoppingListContainer = document.getElementById('shopping-list-container')
 
 // Init
 function init() {
+  loadState();
   renderPantry();
   renderFridgeTags();
   renderResults();
@@ -81,12 +106,14 @@ function switchTab(tab) {
 
 function addFridgeIngredient(name) {
   fridgeIngredients.push(name);
+  saveState();
   renderFridgeTags();
   renderResults();
 }
 
 function removeFridgeIngredient(name) {
   fridgeIngredients = fridgeIngredients.filter(i => i !== name);
+  saveState();
   renderFridgeTags();
   renderResults();
 }
@@ -97,6 +124,7 @@ function togglePantryItem(name) {
   } else {
     pantryIngredients.push(name);
   }
+  saveState();
   renderPantry();
   renderResults();
 }
@@ -237,12 +265,14 @@ function renderRecipeCard(recipe, missing) {
 function addShoppingItem(name, source) {
   if (!shoppingList.some(item => item.name.toLowerCase() === name.toLowerCase())) {
     shoppingList.push({ name, source });
+    saveState();
     renderShoppingList();
   }
 }
 
 function removeShoppingItem(name) {
   shoppingList = shoppingList.filter(item => item.name !== name);
+  saveState();
   renderShoppingList();
 }
 
