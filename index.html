@@ -62,7 +62,13 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"></path><path d="M9 3v18"></path><path d="M15 3v18"></path><path d="M3 9h18"></path><path d="M3 15h18"></path></svg>
               Dispensa Base
             </h2>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Ingredienti che solitamente si hanno in casa.</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Ingredienti che hai sempre a portata di mano.</p>
+            
+            <form id="pantry-form" class="input-group" style="margin-bottom: 1.5rem;">
+              <input type="text" id="pantry-input" placeholder="Aggiungi base (es. Pepe)..." autocomplete="off" style="font-size: 0.85rem; padding: 0.5rem 0.75rem;">
+              <button type="submit" class="primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">+</button>
+            </form>
+
             <div id="pantry-grid" class="pantry-grid">
               <!-- Pantry items added dynamically -->
             </div>

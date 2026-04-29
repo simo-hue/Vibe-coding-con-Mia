@@ -241,6 +241,32 @@ button.primary:hover {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.pantry-del {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.pantry-item:hover .pantry-del {
+  opacity: 1;
+}
+
+.pantry-item {
+  position: relative;
+}
+
 .results-section {
   display: flex;
   flex-direction: column;

@@ -2,8 +2,9 @@ import './style.css'
 import { recipes } from './recipes.js'
 
 // State
-let fridgeIngredients = [];
-let pantryIngredients = ["Olio", "Sale", "Aglio"]; // Default basics
+const DEFAULT_BASICS = ["Olio", "Sale", "Aglio", "Cipolla", "Burro", "Zucchero", "Farina", "Pasta", "Riso", "Pane"];
+let customBasics = [];
+let pantryIngredients = ["Olio", "Sale", "Aglio"]; // Default active basics
 let shoppingList = [];
 let maxTime = 60; // Default 60 minutes
 let activeTab = 'recipes';
@@ -13,6 +14,7 @@ function saveState() {
   const state = {
     fridgeIngredients,
     pantryIngredients,
+    customBasics,
     shoppingList,
     maxTime
   };
@@ -26,6 +28,7 @@ function loadState() {
       const state = JSON.parse(saved);
       fridgeIngredients = state.fridgeIngredients || [];
       pantryIngredients = state.pantryIngredients !== undefined ? state.pantryIngredients : ["Olio", "Sale", "Aglio"];
+      customBasics = state.customBasics || [];
       shoppingList = state.shoppingList || [];
       maxTime = state.maxTime || 60;
     } catch (e) {
@@ -44,6 +47,8 @@ const ingredientForm = document.getElementById('ingredient-form');
 const ingredientInput = document.getElementById('ingredient-input');
 const fridgeTagsContainer = document.getElementById('fridge-tags');
 const pantryGrid = document.getElementById('pantry-grid');
+const pantryForm = document.getElementById('pantry-form');
+const pantryInput = document.getElementById('pantry-input');
 const resultsContainer = document.getElementById('results-container');
 
 const tabRecipesBtn = document.getElementById('tab-recipes');
@@ -138,6 +143,21 @@ function init() {
       renderResults();
     });
   }
+
+  if (pantryForm) {
+    pantryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = pantryInput.value.trim();
+      if (val && !DEFAULT_BASICS.includes(val) && !customBasics.includes(val)) {
+        customBasics.push(val);
+        if (!pantryIngredients.includes(val)) pantryIngredients.push(val);
+        saveState();
+        renderPantry();
+        renderResults();
+        pantryInput.value = '';
+      }
+    });
+  }
 }
 
 function switchTab(tab) {
@@ -159,30 +179,39 @@ function switchTab(tab) {
   }
 }
 
-function addFridgeIngredient(name) {
-  fridgeIngredients.push(name);
-  saveState();
-  renderFridgeTags();
-  renderResults();
+function renderPantry() {
+  const allBasics = [...DEFAULT_BASICS, ...customBasics];
+  pantryGrid.innerHTML = allBasics.map(ing => {
+    const isActive = pantryIngredients.includes(ing);
+    const isCustom = customBasics.includes(ing);
+    return `
+      <div class="pantry-item ${isActive ? 'active' : ''}" onclick="window.togglePantry('${ing}')">
+        ${ing}
+        ${isCustom ? `<span class="pantry-del" onclick="window.removeCustomBasic('${ing}', event)">&times;</span>` : ''}
+      </div>
+    `;
+  }).join('');
 }
 
-function removeFridgeIngredient(name) {
-  fridgeIngredients = fridgeIngredients.filter(i => i !== name);
-  saveState();
-  renderFridgeTags();
-  renderResults();
-}
-
-function togglePantryItem(name) {
-  if (pantryIngredients.includes(name)) {
-    pantryIngredients = pantryIngredients.filter(i => i !== name);
+window.togglePantry = (ing) => {
+  if (pantryIngredients.includes(ing)) {
+    pantryIngredients = pantryIngredients.filter(i => i !== ing);
   } else {
-    pantryIngredients.push(name);
+    pantryIngredients.push(ing);
   }
   saveState();
   renderPantry();
   renderResults();
-}
+};
+
+window.removeCustomBasic = (ing, event) => {
+  event.stopPropagation();
+  customBasics = customBasics.filter(i => i !== ing);
+  pantryIngredients = pantryIngredients.filter(i => i !== ing);
+  saveState();
+  renderPantry();
+  renderResults();
+};
 
 function renderFridgeTags() {
   fridgeTagsContainer.innerHTML = fridgeIngredients.map(ing => `
@@ -196,16 +225,12 @@ function renderFridgeTags() {
 }
 
 // Global expose for onclick
-window.removeIng = removeFridgeIngredient;
-window.togglePantry = togglePantryItem;
-
-function renderPantry() {
-  pantryGrid.innerHTML = commonPantry.map(item => `
-    <div class="pantry-item ${pantryIngredients.includes(item) ? 'active' : ''}" onclick="window.togglePantry('${item}')">
-      ${item}
-    </div>
-  `).join('');
-}
+window.removeIng = (name) => {
+  fridgeIngredients = fridgeIngredients.filter(i => i !== name);
+  saveState();
+  renderFridgeTags();
+  renderResults();
+};
 
 function findMatchingRecipes() {
   const allAvailable = [...fridgeIngredients, ...pantryIngredients].map(i => i.toLowerCase());
