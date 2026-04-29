@@ -64,19 +64,21 @@ const modalBody = document.getElementById('modal-body');
 
 function updateSliderTrack() {
   if (!timeSlider) return;
-  const min = timeSlider.min || 5;
-  const max = timeSlider.max || 120;
-  const val = timeSlider.value;
-  const percentage = ((val - min) / (max - min)) * 100;
+  const min = parseInt(timeSlider.min) || 5;
+  const max = parseInt(timeSlider.max) || 120;
+  const val = parseInt(timeSlider.value);
+  const percentage = Math.min(Math.max(((val - min) / (max - min)) * 100, 0), 100);
   
-  // Gourmet Dial: Vibrant primary fill with inner depth
+  // Clean Hard-stop Gradient: No bleeding or ghosting
   timeSlider.style.background = `linear-gradient(to right, 
     var(--primary-color) 0%, 
     var(--primary-color) ${percentage}%, 
-    rgba(0, 0, 0, 0.3) ${percentage}%)`;
+    rgba(255, 255, 255, 0.05) ${percentage}%, 
+    rgba(255, 255, 255, 0.05) 100%)`;
     
-  // Add reflecting glow based on percentage
-  timeSlider.style.boxShadow = `inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 ${percentage/5}px var(--primary-glow)`;
+  // Subtler, more professional glow
+  const glowIntensity = (percentage / 100) * 15;
+  timeSlider.style.boxShadow = `inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 ${glowIntensity}px var(--primary-glow)`;
 }
 
 // Init
