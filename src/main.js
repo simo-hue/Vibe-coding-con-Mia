@@ -271,7 +271,7 @@ function renderResults() {
 
 function renderRecipeCard(recipe, missing) {
   return `
-    <div class="glass-card recipe-card ${missing.length > 0 ? 'partial' : ''}">
+    <div class="glass-card recipe-card ${missing.length > 0 ? 'partial' : ''}" onclick="window.openRecipeDetail(${recipe.id}, event)">
       <div class="recipe-header">
         <div>
           <span class="match-badge">${recipe.category}</span>
@@ -336,6 +336,74 @@ window.addRecipeToShopping = (recipeId) => {
     // Switch Tab
     switchTab('shopping');
   }
+};
+
+window.openRecipeDetail = (recipeId, event) => {
+  // Don't open if clicking a button
+  if (event && event.target.closest('button')) return;
+
+  const recipe = recipes.find(r => r.id === recipeId);
+  if (!recipe) return;
+
+  // Ensure the recipe has all fields (fallback for older database entries)
+  const detail = {
+    description: recipe.description || "Una deliziosa ricetta preparata con ingredienti freschi e genuini.",
+    servings: recipe.servings || 2,
+    difficulty: recipe.difficulty || "Facile",
+    ingredientsDetails: recipe.ingredientsDetails || recipe.ingredients.map(ing => ({ name: ing, qty: "q.b." })),
+    steps: recipe.steps || [recipe.instructions],
+    tips: recipe.tips || "Servi il piatto ben caldo per gustarne appieno tutti i sapori.",
+    ...recipe
+  };
+
+  modalBody.innerHTML = `
+    <div class="recipe-detail-header">
+      <div class="recipe-detail-title">
+        ${detail.title}
+        <span class="match-badge" style="font-size: 1rem;">${detail.difficulty}</span>
+      </div>
+      <p class="recipe-detail-desc">${detail.description}</p>
+    </div>
+
+    <div class="recipe-meta-row">
+      <div class="meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        ${detail.time} min
+      </div>
+      <div class="meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        ${detail.servings} porz.
+      </div>
+      <div class="meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+        ${detail.ingredients.length} ingr.
+      </div>
+    </div>
+
+    <h2 class="section-title">Ingredienti</h2>
+    <ul class="ingredients-list">
+      ${detail.ingredientsDetails.map(ing => `
+        <li>
+          <span class="ing-name">${ing.name}</span>
+          <span class="ing-qty">${ing.qty}</span>
+        </li>
+      `).join('')}
+    </ul>
+
+    <h2 class="section-title">Preparazione</h2>
+    <ol class="steps-list">
+      ${detail.steps.map(step => `<li>${step}</li>`).join('')}
+    </ol>
+
+    <div class="tips-box">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+      <div class="tips-text">
+        <strong>Tip:</strong> ${detail.tips}
+      </div>
+    </div>
+  `;
+
+  recipeModal.classList.add('active');
 };
 
 window.removeShoppingItem = removeShoppingItem;
