@@ -5,6 +5,7 @@ import { recipes } from './recipes.js'
 let fridgeIngredients = [];
 let pantryIngredients = ["Olio", "Sale", "Aglio"]; // Default basics
 let shoppingList = [];
+let maxTime = 60; // Default 60 minutes
 let activeTab = 'recipes';
 
 // Persistence Functions
@@ -12,7 +13,8 @@ function saveState() {
   const state = {
     fridgeIngredients,
     pantryIngredients,
-    shoppingList
+    shoppingList,
+    maxTime
   };
   localStorage.setItem('fridgeChefState', JSON.stringify(state));
 }
@@ -25,6 +27,7 @@ function loadState() {
       fridgeIngredients = state.fridgeIngredients || [];
       pantryIngredients = state.pantryIngredients !== undefined ? state.pantryIngredients : ["Olio", "Sale", "Aglio"];
       shoppingList = state.shoppingList || [];
+      maxTime = state.maxTime || 60;
     } catch (e) {
       console.error("Error loading state", e);
     }
@@ -53,10 +56,19 @@ const mainSubtitle = document.getElementById('main-subtitle');
 const shoppingForm = document.getElementById('shopping-form');
 const shoppingInput = document.getElementById('shopping-input');
 const shoppingListContainer = document.getElementById('shopping-list-container');
+const timeSlider = document.getElementById('time-slider');
+const timeVal = document.getElementById('time-val');
 
 // Init
 function init() {
   loadState();
+  
+  // Sync slider UI
+  if (timeSlider) {
+    timeSlider.value = maxTime;
+    timeVal.innerText = maxTime;
+  }
+
   renderPantry();
   renderFridgeTags();
   renderResults();
@@ -83,6 +95,15 @@ function init() {
       shoppingInput.value = '';
     }
   });
+
+  if (timeSlider) {
+    timeSlider.addEventListener('input', (e) => {
+      maxTime = parseInt(e.target.value);
+      timeVal.innerText = maxTime;
+      saveState();
+      renderResults();
+    });
+  }
 }
 
 function switchTab(tab) {
@@ -175,6 +196,9 @@ function findMatchingRecipes() {
   };
 
   recipes.forEach(recipe => {
+    // Filter by time first
+    if (recipe.time > maxTime) return;
+
     const missing = recipe.ingredients.filter(ing => !checkMatch(ing, allAvailable));
 
     if (missing.length === 0) {
@@ -241,6 +265,10 @@ function renderRecipeCard(recipe, missing) {
         <div>
           <span class="match-badge">${recipe.category}</span>
           <h3 class="recipe-title">${recipe.title}</h3>
+          <div class="recipe-time">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            ${recipe.time} min
+          </div>
         </div>
         ${missing.length > 0 ? `<span class="missing-badge">Mancano ${missing.length} ingredienti</span>` : ''}
       </div>
