@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FridgeChef - Cosa cuciniamo oggi?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Genera ricette basate sugli ingredienti che hai nel frigo.">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>FridgeChef</h1>
+        <p>Inserisci quello che hai, noi troviamo la ricetta perfetta.</p>
+      </header>
+
+      <div class="main-container">
+        <aside class="input-section">
+          <div class="glass-card">
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 21V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2z"></path><path d="M22 21V3a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2z"></path><path d="M2 7h8"></path><path d="M14 7h8"></path><path d="M2 11h8"></path><path d="M14 11h8"></path><path d="M2 15h8"></path><path d="M14 15h8"></path></svg>
+              Il tuo Frigo
+            </h2>
+            <form id="ingredient-form" class="input-group">
+              <input type="text" id="ingredient-input" placeholder="Aggiungi ingrediente (es. Pomodoro)..." autocomplete="off">
+              <button type="submit" class="primary">
+                Aggiungi
+              </button>
+            </form>
+            <div id="fridge-tags" class="tag-container">
+              <!-- Tags added dynamically -->
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"></path><path d="M9 3v18"></path><path d="M15 3v18"></path><path d="M3 9h18"></path><path d="M3 15h18"></path></svg>
+              Dispensa Base
+            </h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Ingredienti che solitamente si hanno in casa.</p>
+            <div id="pantry-grid" class="pantry-grid">
+              <!-- Pantry items added dynamically -->
+            </div>
+          </div>
+        </aside>
+
+        <main class="results-section" id="results-container">
+          <div class="empty-state">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+            <p>Aggiungi ingredienti per scoprire cosa puoi cucinare!</p>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
