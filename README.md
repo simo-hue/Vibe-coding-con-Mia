@@ -13,7 +13,6 @@ Mia non è una persona tecnica — studia **Psicologia** — e questo progetto �
 ---
 
 ## 📸 Galleria (Screenshot)
-*Inserisci qui le immagini per mostrare l'app. Salva i file nella cartella `docs/screenshots/` con i nomi indicati.*
 
 | Sezione | Anteprima | Nome File |
 | :--- | :--- | :--- |
