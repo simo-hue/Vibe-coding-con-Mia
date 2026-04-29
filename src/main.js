@@ -2,6 +2,7 @@ import './style.css'
 import { recipes } from './recipes.js'
 
 // State
+let fridgeIngredients = [];
 const DEFAULT_BASICS = ["Olio", "Sale", "Aglio", "Cipolla", "Burro", "Zucchero", "Farina", "Pasta", "Riso", "Pane"];
 let customBasics = [];
 let pantryIngredients = ["Olio", "Sale", "Aglio"]; // Default active basics
@@ -36,11 +37,6 @@ function loadState() {
     }
   }
 }
-
-const commonPantry = [
-  "Olio", "Sale", "Pepe", "Zucchero", "Farina", "Pasta", "Riso", 
-  "Uova", "Burro", "Aglio", "Cipolla", "Latte", "Parmigiano", "Pane"
-];
 
 // Elements
 const ingredientForm = document.getElementById('ingredient-form');
@@ -77,6 +73,7 @@ function updateSliderTrack() {
   const percentage = ((val - min) / (max - min)) * 100;
   
   // High-precision hard-stop gradient to avoid bleeding and ensure end-to-end coverage
+  // Using 0.1% buffer for the hard stop to prevent anti-aliasing artifacts
   timeSlider.style.background = `linear-gradient(to right, 
     var(--primary-color) 0%, 
     var(--primary-color) ${percentage}%, 
