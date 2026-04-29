@@ -23,7 +23,7 @@ function loadState() {
     try {
       const state = JSON.parse(saved);
       fridgeIngredients = state.fridgeIngredients || [];
-      pantryIngredients = state.pantryIngredients || ["Olio", "Sale", "Aglio"];
+      pantryIngredients = state.pantryIngredients !== undefined ? state.pantryIngredients : ["Olio", "Sale", "Aglio"];
       shoppingList = state.shoppingList || [];
     } catch (e) {
       console.error("Error loading state", e);
