@@ -37,10 +37,45 @@ body {
   padding: 2rem;
 }
 
+#view-recipes, #view-shopping {
+  display: none;
+}
+
+#view-recipes.active, #view-shopping.active {
+  display: grid;
+}
+
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.tab-nav button {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  padding: 0.75rem 1.5rem;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.tab-nav button.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
 header {
   text-align: center;
-  margin-bottom: 4rem;
-  padding-top: 2rem;
+  margin-bottom: 3rem;
+  padding-top: 0;
 }
 
 header h1 {
@@ -242,6 +277,82 @@ button.primary:hover {
   background: rgba(239, 68, 68, 0.05);
   border: 1px solid rgba(239, 68, 68, 0.1);
   opacity: 0.8;
+}
+
+.btn-add-shopping {
+  margin-top: 1rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: var(--accent-color);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.btn-add-shopping:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+.shopping-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--glass-border);
+  animation: fadeIn 0.3s ease;
+}
+
+.shopping-item .item-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shopping-item .item-name {
+  font-weight: 600;
+}
+
+.shopping-item .item-from {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.shopping-item button.remove, .shopping-item button.complete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.shopping-item button.remove {
+  color: #ef4444;
+}
+
+.shopping-item button.complete {
+  color: var(--primary-color);
+}
+
+.shopping-item button.remove:hover, .shopping-item button.complete:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .recipe-title {

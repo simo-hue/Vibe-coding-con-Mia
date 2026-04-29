@@ -12,12 +12,17 @@
   </head>
   <body>
     <div id="app">
+      <nav class="tab-nav">
+        <button id="tab-recipes" class="active">🍳 Ricette</button>
+        <button id="tab-shopping">🛒 Lista Spesa</button>
+      </nav>
+
       <header>
-        <h1>FridgeChef</h1>
-        <p>Inserisci quello che hai, noi troviamo la ricetta perfetta.</p>
+        <h1 id="main-title">FridgeChef</h1>
+        <p id="main-subtitle">Inserisci quello che hai, noi troviamo la ricetta perfetta.</p>
       </header>
 
-      <div class="main-container">
+      <div id="view-recipes" class="main-container active">
         <aside class="input-section">
           <div class="glass-card">
             <h2>
@@ -51,6 +56,29 @@
           <div class="empty-state">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
             <p>Aggiungi ingredienti per scoprire cosa puoi cucinare!</p>
+          </div>
+        </main>
+      </div>
+
+      <div id="view-shopping" class="main-container">
+        <aside class="input-section">
+          <div class="glass-card">
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              Manuale
+            </h2>
+            <form id="shopping-form" class="input-group">
+              <input type="text" id="shopping-input" placeholder="Aggiungi alla spesa..." autocomplete="off">
+              <button type="submit" class="primary">Aggiungi</button>
+            </form>
+          </div>
+        </aside>
+        <main class="results-section">
+          <div class="glass-card">
+            <h2>La tua Spesa</h2>
+            <div id="shopping-list-container">
+              <!-- Shopping items added dynamically -->
+            </div>
           </div>
         </main>
       </div>

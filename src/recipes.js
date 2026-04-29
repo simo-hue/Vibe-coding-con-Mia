@@ -1,5 +1,12 @@
 export const recipes = [
   {
+    id: 0,
+    title: "Avocado Toast Semplice",
+    ingredients: ["Pane", "Avocado", "Uova", "Sale", "Pepe", "Olio"],
+    instructions: "Tosta il pane. Schiaccia l'avocado con sale, pepe e un filo d'olio. Cuoci l'uovo (occhio di bue o sodo) e mettilo sopra.",
+    category: "Colazione"
+  },
+  {
     id: 1,
     title: "Pasta Aglio, Olio e Peperoncino",
     ingredients: ["Pasta", "Aglio", "Olio", "Peperoncino", "Prezzemolo"],
@@ -106,72 +113,948 @@ export const recipes = [
   },
   {
     id: 16,
-    title: "Pasta al Burro e Parmigiano",
-    ingredients: ["Pasta", "Burro", "Parmigiano", "Sale"],
-    instructions: "Cuoci la pasta. Manteca con burro freddo e parmigiano grattugiato finché non diventa cremosa.",
+    title: "Pasta Carbonara",
+    ingredients: ["Pasta", "Guanciale", "Uova", "Pecorino", "Pepe"],
+    instructions: "Rosola il guanciale. Sbatti le uova con il pecorino. Unisci la pasta al guanciale, spegni il fuoco e versa le uova.",
     category: "Pasta"
   },
   {
     id: 17,
-    title: "Insalata Greca Semplificata",
-    ingredients: ["Pomodoro", "Cetriolo", "Cipolla", "Olio", "Sale", "Origano"],
-    instructions: "Taglia le verdure a pezzi grandi. Condisci con olio, sale e abbondante origano.",
-    category: "Insalate"
+    title: "Guacamole",
+    ingredients: ["Avocado", "Lime", "Cipolla", "Pomodoro", "Sale", "Coriandolo"],
+    instructions: "Schiaccia l'avocado. Unisci cipolla e pomodoro a dadini, succo di lime e coriandolo tritato.",
+    category: "Antipasti"
   },
   {
     id: 18,
-    title: "Uova Sode",
-    ingredients: ["Uova", "Sale", "Olio"],
-    instructions: "Lessa le uova per 9 minuti. Raffredda, sbuccia e condisci con un filo d'olio e sale.",
+    title: "Shakshuka",
+    ingredients: ["Uova", "Pomodoro", "Peperoni", "Cipolla", "Aglio", "Olio", "Paprika"],
+    instructions: "Cuoci cipolla, aglio e peperoni. Aggiungi il pomodoro e le spezie. Rompi le uova sopra e cuoci col coperchio.",
     category: "Secondi"
   },
   {
     id: 19,
-    title: "Pane Burro e Zucchero",
-    ingredients: ["Pane", "Burro", "Zucchero"],
-    instructions: "Una merenda d'altri tempi. Spalma il burro sul pane e spolvera con zucchero.",
-    category: "Dolci"
+    title: "Hummus di Ceci",
+    ingredients: ["Ceci", "Tahina", "Limone", "Aglio", "Olio", "Sale"],
+    instructions: "Frulla i ceci precotti con tahina, succo di limone, aglio e olio fino a ottenere una crema liscia.",
+    category: "Antipasti"
   },
   {
     id: 20,
-    title: "Patate Bollite",
-    ingredients: ["Patate", "Sale", "Olio", "Prezzemolo"],
-    instructions: "Lessa le patate. Sbucciale e tagliale a fette. Condisci con olio, sale e prezzemolo.",
-    category: "Contorni"
-  },
-  {
-    id: 21,
-    title: "Pasta Tonno e Limone",
-    ingredients: ["Pasta", "Tonno", "Limone", "Olio", "Sale"],
-    instructions: "Cuoci la pasta. In una ciotola mescola tonno, scorza di limone e olio. Unisci alla pasta.",
-    category: "Pasta"
-  },
-  {
-    id: 22,
-    title: "Cipolle Caramellate",
-    ingredients: ["Cipolla", "Zucchero", "Olio", "Sale"],
-    instructions: "Affetta le cipolle. Cuocile lentamente con olio e un po' di zucchero finché non diventano scure e dolci.",
-    category: "Contorni"
-  },
-  {
-    id: 23,
-    title: "Riso Saltato Semplice",
-    ingredients: ["Riso", "Uova", "Olio", "Sale"],
-    instructions: "Usa riso già cotto. Saltalo in padella con olio e un uovo strapazzato finché croccante.",
+    title: "Riso alla Cantonese",
+    ingredients: ["Riso", "Piselli", "Prosciutto", "Uova", "Olio", "Soia"],
+    instructions: "Salta il riso bollito con piselli e prosciutto. Aggiungi le uova strapazzate e condisci con salsa di soia.",
     category: "Primi"
   },
   {
+    id: 21,
+    title: "Caesar Salad",
+    ingredients: ["Pollo", "Lattuga", "Pane", "Parmigiano", "Maionese", "Senape"],
+    instructions: "Griglia il pollo. Tosta i crostini di pane. Unisci alla lattuga con scaglie di parmigiano e salsa maionese/senape.",
+    category: "Insalate"
+  },
+  {
+    id: 22,
+    title: "Tacos Semplici",
+    ingredients: ["Tortillas", "Carne Macinata", "Pomodoro", "Lattuga", "Formaggio"],
+    instructions: "Cuoci la carne con spezie. Scalda le tortillas e riempile con carne, verdure fresche e formaggio.",
+    category: "Secondi"
+  },
+  {
+    id: 23,
+    title: "Curry di Verdure",
+    ingredients: ["Patate", "Carote", "Cipolla", "Latte di Cocco", "Curry", "Riso"],
+    instructions: "Soffriggi cipolla e verdure. Aggiungi curry e latte di cocco. Cuoci finché tenere e servi con riso bianco.",
+    category: "Piatti Unici"
+  },
+  {
     id: 24,
-    title: "Pomodori Gratinati",
-    ingredients: ["Pomodoro", "Pane", "Aglio", "Olio", "Sale"],
-    instructions: "Taglia i pomodori a metà. Coprili con pane grattugiato, aglio tritato e olio. Inforna a 200°C per 15 min.",
+    title: "Ratatouille",
+    ingredients: ["Zucchine", "Melanzane", "Peperoni", "Pomodoro", "Cipolla", "Olio"],
+    instructions: "Taglia le verdure a cubetti. Cuocile separatamente in olio, poi uniscile e stufa insieme per 20 minuti.",
     category: "Contorni"
   },
   {
     id: 25,
-    title: "Crema di Parmigiano",
-    ingredients: ["Parmigiano", "Latte", "Burro", "Farina"],
-    instructions: "Crea una besciamella leggera con burro, farina e latte. Aggiungi parmigiano a fuoco spento finché sciolto.",
-    category: "Salse"
+    title: "Fish and Chips Semplificato",
+    ingredients: ["Merluzzo", "Patate", "Farina", "Birra", "Olio"],
+    instructions: "Crea una pastella con farina e birra. Immergi il pesce e friggilo. Servi con patatine fritte fatte in casa.",
+    category: "Secondi"
+  },
+  {
+    id: 26,
+    title: "Paella di Verdure",
+    ingredients: ["Riso", "Zafferano", "Peperoni", "Piselli", "Pomodoro", "Brodo"],
+    instructions: "Tosta il riso con le verdure. Aggiungi il brodo con lo zafferano. Cuoci senza mescolare finché assorbito.",
+    category: "Primi"
+  },
+  {
+    id: 27,
+    title: "Quesadillas",
+    ingredients: ["Tortillas", "Formaggio", "Pollo", "Cipolla"],
+    instructions: "Metti formaggio e pollo tra due tortillas. Scalda in padella finché il formaggio è fuso e le tortillas dorate.",
+    category: "Antipasti"
+  },
+  {
+    id: 28,
+    title: "Cous Cous alle Verdure",
+    ingredients: ["Cous Cous", "Zucchine", "Carote", "Peperoni", "Olio"],
+    instructions: "Sgrana il cous cous con acqua calda e olio. Salta le verdure in padella e uniscile al cous cous.",
+    category: "Primi"
+  },
+  {
+    id: 29,
+    title: "Banana Bread",
+    ingredients: ["Banane", "Farina", "Uova", "Zucchero", "Burro", "Lievito"],
+    instructions: "Schiaccia le banane mature. Unisci uova, burro fuso, zucchero e farina con lievito. Inforna a 180°C per 45 min.",
+    category: "Dolci"
+  },
+  {
+    id: 30,
+    title: "Gaspacho",
+    ingredients: ["Pomodoro", "Cetriolo", "Peperoni", "Pane", "Aglio", "Aceto"],
+    instructions: "Frulla tutte le verdure fresche con pane ammollato, aglio e un tocco di aceto. Servi freddissimo.",
+    category: "Zuppe"
+  },
+  {
+    id: 31,
+    title: "Pasta alla Norma",
+    ingredients: ["Pasta", "Melanzane", "Pomodoro", "Ricotta Salata", "Basilico"],
+    instructions: "Friggi le melanzane a cubetti. Unisci al sugo di pomodoro. Condisci la pasta con melanzane, ricotta e basilico.",
+    category: "Pasta"
+  },
+  {
+    id: 32,
+    title: "Falafel",
+    ingredients: ["Ceci", "Prezzemolo", "Aglio", "Cipolla", "Cumino", "Olio"],
+    instructions: "Frulla i ceci crudi ammollati con erbe e spezie. Forma delle palline e friggile in olio abbondante.",
+    category: "Secondi"
+  },
+  {
+    id: 33,
+    title: "Club Sandwich",
+    ingredients: ["Pane", "Pollo", "Bacon", "Lattuga", "Pomodoro", "Maionese"],
+    instructions: "Tosta tre fette di pane. Crea strati con maionese, pollo grigliato, bacon croccante, lattuga e pomodoro.",
+    category: "Secondi"
+  },
+  {
+    id: 34,
+    title: "Zuppa di Cipolle",
+    ingredients: ["Cipolla", "Pane", "Formaggio", "Brodo", "Burro"],
+    instructions: "Caramella le cipolle nel burro. Aggiungi il brodo. Copri con pane e formaggio e gratina al forno.",
+    category: "Zuppe"
+  },
+  {
+    id: 35,
+    title: "Pizza Margherita Semplice",
+    ingredients: ["Farina", "Lievito", "Acqua", "Pomodoro", "Mozzarella", "Olio"],
+    instructions: "Impasta farina, acqua e lievito. Lascia lievitare. Stendi, aggiungi pomodoro e mozzarella e inforna al massimo.",
+    category: "Lievitati"
+  },
+  {
+    id: 36,
+    title: "Mousse al Cioccolato",
+    ingredients: ["Cioccolato", "Uova", "Zucchero"],
+    instructions: "Sciogli il cioccolato. Unisci i tuorli. Incorpora gli albumi montati a neve con lo zucchero. Raffredda.",
+    category: "Dolci"
+  },
+  {
+    id: 37,
+    title: "Spaghetti alla Puttanesca",
+    ingredients: ["Pasta", "Pomodoro", "Olive", "Capperi", "Acciughe", "Aglio"],
+    instructions: "Soffriggi aglio e acciughe. Aggiungi pomodoro, olive e capperi. Cuoci e condisci gli spaghetti.",
+    category: "Pasta"
+  },
+  {
+    id: 38,
+    title: "Insalata Niçoise",
+    ingredients: ["Tonno", "Uova", "Fagiolini", "Patate", "Pomodoro", "Olive"],
+    instructions: "Lessa uova, patate e fagiolini. Unisci al tonno, pomodori e olive. Condisci con una vinaigrette.",
+    category: "Insalate"
+  },
+  {
+    id: 39,
+    title: "Tempura di Verdure",
+    ingredients: ["Zucchine", "Carote", "Farina", "Acqua Frizzante", "Olio"],
+    instructions: "Crea una pastella ghiacciata con farina e acqua frizzante. Immergi le verdure e friggi velocemente.",
+    category: "Antipasti"
+  },
+  {
+    id: 40,
+    title: "Torta di Mele",
+    ingredients: ["Mele", "Farina", "Uova", "Zucchero", "Burro", "Latte"],
+    instructions: "Mescola uova, zucchero, burro fuso e farina. Unisci le mele a fette. Inforna a 180°C per 40 min.",
+    category: "Dolci"
+  },
+  {
+    id: 41,
+    title: "Salmone allo Zenzero",
+    ingredients: ["Salmone", "Zenzero", "Soia", "Miele", "Limone"],
+    instructions: "Marina il salmone con soia, miele, zenzero grattugiato e limone. Cuoci in padella o al forno.",
+    category: "Secondi"
+  },
+  {
+    id: 42,
+    title: "Gnocchi alla Sorrentina",
+    ingredients: ["Patate", "Farina", "Pomodoro", "Mozzarella", "Parmigiano"],
+    instructions: "Crea gli gnocchi con patate e farina. Cuocili e uniscili al sugo di pomodoro. Gratina con mozzarella.",
+    category: "Pasta"
+  },
+  {
+    id: 43,
+    title: "Chili con Carne",
+    ingredients: ["Carne Macinata", "Fagioli", "Pomodoro", "Cipolla", "Peperoncino"],
+    instructions: "Rosola la carne con cipolla. Aggiungi fagioli, pomodoro e peperoncino. Cuoci lentamente per 1 ora.",
+    category: "Piatti Unici"
+  },
+  {
+    id: 44,
+    title: "Tiramisù",
+    ingredients: ["Savoiardi", "Mascarpone", "Uova", "Caffè", "Zucchero", "Cacao"],
+    instructions: "Crea una crema con mascarpone e uova. Inzuppa i savoiardi nel caffè. Alterna strati e spolvera di cacao.",
+    category: "Dolci"
+  },
+  {
+    id: 45,
+    title: "Agnello alle Erbe",
+    ingredients: ["Agnello", "Aglio", "Rosmarino", "Timo", "Vino Bianco"],
+    instructions: "Soffriggi l'agnello con aglio ed erbe. Sfuma con vino bianco e cuoci finché tenero.",
+    category: "Secondi"
+  },
+  {
+    id: 46,
+    title: "Poke Bowl Fai-da-te",
+    ingredients: ["Riso", "Pesce Crudo", "Avocado", "Soia", "Cetriolo"],
+    instructions: "Disponi il riso alla base. Aggiungi il pesce marinato in soia, l'avocado a fette e le verdure fresche.",
+    category: "Piatti Unici"
+  },
+  {
+    id: 47,
+    title: "Polpette al Sugo",
+    ingredients: ["Carne Macinata", "Pane", "Uova", "Parmigiano", "Pomodoro"],
+    instructions: "Impasta carne, uova, pane e parmigiano. Forma delle palline e cuocile nel sugo di pomodoro.",
+    category: "Secondi"
+  },
+  {
+    id: 48,
+    title: "Risotto ai Funghi",
+    ingredients: ["Riso", "Funghi", "Cipolla", "Vino Bianco", "Burro", "Parmigiano"],
+    instructions: "Soffriggi la cipolla con i funghi. Tosta il riso, sfuma col vino e cuoci aggiungendo brodo man mano.",
+    category: "Primi"
+  },
+  {
+    id: 49,
+    title: "Crepes alla Nutella",
+    ingredients: ["Farina", "Latte", "Uova", "Burro", "Nutella"],
+    instructions: "Prepara la pastella. Cuoci le crepes sottili in padella imburrata. Farcisci con Nutella calda.",
+    category: "Dolci"
+  },
+  {
+    id: 50,
+    title: "Uova in Purgatorio",
+    ingredients: ["Uova", "Pomodoro", "Aglio", "Olio", "Pepe"],
+    instructions: "Scalda il pomodoro con aglio e olio. Crea dei buchi, rompi le uova dentro e cuoci finché l'albume è sodo.",
+    category: "Secondi"
+  },
+  {
+    id: 51,
+    title: "Pasta alla Boscaiola",
+    ingredients: ["Pasta", "Funghi", "Salsiccia", "Panna", "Piselli", "Cipolla"],
+    instructions: "Soffriggi cipolla e salsiccia. Aggiungi i funghi e i piselli. Sfuma e aggiungi la panna. Condisci la pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 52,
+    title: "Insalata di Ceci e Tonno",
+    ingredients: ["Ceci", "Tonno", "Cipolla", "Olio", "Aceto", "Prezzemolo"],
+    instructions: "Mescola i ceci con il tonno sgocciolato, cipolla rossa affettata e prezzemolo. Condisci con olio e aceto.",
+    category: "Insalate"
+  },
+  {
+    id: 53,
+    title: "Omelette al Formaggio",
+    ingredients: ["Uova", "Formaggio", "Latte", "Burro", "Sale"],
+    instructions: "Sbatti le uova con poco latte. Versa in padella imburrata, aggiungi il formaggio e piega a metà.",
+    category: "Secondi"
+  },
+  {
+    id: 54,
+    title: "Bruschetta Avocado e Uovo",
+    ingredients: ["Pane", "Avocado", "Uova", "Olio", "Peperoncino"],
+    instructions: "Tosta il pane. Spalma l'avocado schiacciato. Appoggia sopra un uovo in camicia o al tegamino.",
+    category: "Antipasti"
+  },
+  {
+    id: 55,
+    title: "Pollo al Curry Semplice",
+    ingredients: ["Pollo", "Curry", "Cipolla", "Yogurt Greco", "Riso"],
+    instructions: "Cuoci il pollo con cipolla e curry. Aggiungi lo yogurt per la cremosità. Servi con riso bollito.",
+    category: "Secondi"
+  },
+  {
+    id: 56,
+    title: "Pasta con Panna e Prosciutto",
+    ingredients: ["Pasta", "Panna", "Prosciutto", "Parmigiano", "Burro"],
+    instructions: "Salta il prosciutto nel burro. Aggiungi la panna e il parmigiano. Unisci la pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 57,
+    title: "Sogliola alla Mugnaia",
+    ingredients: ["Sogliola", "Farina", "Burro", "Limone", "Prezzemolo"],
+    instructions: "Infarina il pesce. Cuoci nel burro finché dorato. Aggiungi succo di limone e prezzemolo.",
+    category: "Secondi"
+  },
+  {
+    id: 58,
+    title: "Zuppa di Lenticchie",
+    ingredients: ["Lenticchie", "Carote", "Sedano", "Cipolla", "Pomodoro", "Olio"],
+    instructions: "Crea un soffritto. Aggiungi lenticchie e pomodoro. Copri con acqua e cuoci per 40 minuti.",
+    category: "Zuppe"
+  },
+  {
+    id: 59,
+    title: "Patate alla Paprika",
+    ingredients: ["Patate", "Paprika", "Olio", "Sale", "Aglio"],
+    instructions: "Taglia le patate a spicchi. Condisci con olio, aglio e tanta paprika. Inforna finché croccanti.",
+    category: "Contorni"
+  },
+  {
+    id: 60,
+    title: "Spaghetti alle Vongole",
+    ingredients: ["Pasta", "Vongole", "Aglio", "Olio", "Prezzemolo", "Vino Bianco"],
+    instructions: "Apri le vongole in padella con aglio e olio. Sfuma con vino. Unisci la pasta e prezzemolo.",
+    category: "Pasta"
+  },
+  {
+    id: 61,
+    title: "Focaccia Semplice",
+    ingredients: ["Farina", "Acqua", "Lievito", "Olio", "Sale", "Rosmarino"],
+    instructions: "Impasta farina, acqua e lievito. Stendi in teglia con tanto olio e rosmarino. Inforna a 220°C.",
+    category: "Lievitati"
+  },
+  {
+    id: 62,
+    title: "Uova alla Benedict",
+    ingredients: ["Uova", "Pane", "Prosciutto", "Burro", "Limone"],
+    instructions: "Uova in camicia su pane tostato e prosciutto. Copri con salsa olandese (tuorli, burro, limone).",
+    category: "Secondi"
+  },
+  {
+    id: 63,
+    title: "Risotto allo Zafferano",
+    ingredients: ["Riso", "Zafferano", "Cipolla", "Burro", "Parmigiano", "Brodo"],
+    instructions: "Tosta il riso. Aggiungi brodo e zafferano. Manteca alla fine con abbondante burro e parmigiano.",
+    category: "Primi"
+  },
+  {
+    id: 64,
+    title: "Saltimbocca alla Romana",
+    ingredients: ["Vitello", "Prosciutto", "Salvia", "Farina", "Burro", "Vino Bianco"],
+    instructions: "Applica prosciutto e salvia sulla carne. Infarina e cuoci nel burro. Sfuma con vino bianco.",
+    category: "Secondi"
+  },
+  {
+    id: 65,
+    title: "Minestrone di Verdure",
+    ingredients: ["Zucchine", "Patate", "Carote", "Piselli", "Fagioli", "Cipolla"],
+    instructions: "Taglia tutte le verdure che hai. Cuoci in acqua bollente per un'ora. Frulla una parte per densità.",
+    category: "Zuppe"
+  },
+  {
+    id: 66,
+    title: "Melanzane alla Parmigiana",
+    ingredients: ["Melanzane", "Pomodoro", "Mozzarella", "Parmigiano", "Basilico"],
+    instructions: "Friggi le melanzane. Alterna strati di melanzane, sugo, mozzarella e parmigiano. Inforna.",
+    category: "Secondi"
+  },
+  {
+    id: 67,
+    title: "Tortellini Panna e Prosciutto",
+    ingredients: ["Tortellini", "Panna", "Prosciutto", "Parmigiano", "Piselli"],
+    instructions: "Cuoci i tortellini. Scalda panna e prosciutto. Unisci tutto e aggiungi parmigiano.",
+    category: "Pasta"
+  },
+  {
+    id: 68,
+    title: "Caprese",
+    ingredients: ["Mozzarella", "Pomodoro", "Basilico", "Olio", "Sale"],
+    instructions: "Affetta mozzarella e pomodoro. Alternali sul piatto. Aggiungi basilico e un filo d'olio.",
+    category: "Insalate"
+  },
+  {
+    id: 69,
+    title: "Pasta al Pesto",
+    ingredients: ["Pasta", "Basilico", "Parmigiano", "Pecorino", "Pinoli", "Aglio", "Olio"],
+    instructions: "Pesta o frulla gli ingredienti del pesto. Condisci la pasta a freddo con un po' di acqua di cottura.",
+    category: "Pasta"
+  },
+  {
+    id: 70,
+    title: "Straccetti di Manzo e Rucola",
+    ingredients: ["Manzo", "Rucola", "Parmigiano", "Aceto Balsamico", "Olio"],
+    instructions: "Cuoci velocemente la carne a strisce. Servi su un letto di rucola con scaglie di parmigiano.",
+    category: "Secondi"
+  },
+  {
+    id: 71,
+    title: "Pollo alla Cacciatora",
+    ingredients: ["Pollo", "Pomodoro", "Olive", "Cipolla", "Rosmarino", "Vino Rosso"],
+    instructions: "Rosola il pollo. Aggiungi verdure e olive. Sfuma con vino e cuoci nel pomodoro lentamente.",
+    category: "Secondi"
+  },
+  {
+    id: 72,
+    title: "Pasta e Fagioli",
+    ingredients: ["Pasta", "Fagioli", "Cotiche", "Pomodoro", "Rosmarino", "Aglio"],
+    instructions: "Cuoci i fagioli con odori. Aggiungi pasta corta direttamente nel brodo di fagioli finché cotta.",
+    category: "Primi"
+  },
+  {
+    id: 73,
+    title: "Vitello Tonnato",
+    ingredients: ["Vitello", "Maionese", "Tonno", "Capperi", "Acciughe"],
+    instructions: "Lessa il vitello. Prepara la salsa frullando maionese, tonno, capperi e acciughe. Copri la carne.",
+    category: "Secondi"
+  },
+  {
+    id: 74,
+    title: "Arancini Semplici",
+    ingredients: ["Riso", "Zafferano", "Ragù", "Mozzarella", "Pane", "Uova"],
+    instructions: "Forma palle di riso allo zafferano con cuore di ragù e mozzarella. Impana e friggi.",
+    category: "Antipasti"
+  },
+  {
+    id: 75,
+    title: "Pasta allo Scoglio",
+    ingredients: ["Pasta", "Cozze", "Vongole", "Gamberi", "Calamari", "Pomodoro"],
+    instructions: "Cuoci i frutti di mare in padella con aglio e olio. Unisci la pasta e salta tutto insieme.",
+    category: "Pasta"
+  },
+  {
+    id: 76,
+    title: "Bistecca alla Fiorentina",
+    ingredients: ["Manzo", "Olio", "Sale", "Pepe"],
+    instructions: "Griglia la carne ad altissima temperatura. Pochi minuti per lato. Lascia riposare prima di servire.",
+    category: "Secondi"
+  },
+  {
+    id: 77,
+    title: "Insalata di Mare",
+    ingredients: ["Polpo", "Calamari", "Gamberi", "Sedano", "Carote", "Limone"],
+    instructions: "Lessa i pesci separatamente. Taglia a pezzi e condisci con verdure croccanti e limone.",
+    category: "Insalate"
+  },
+  {
+    id: 78,
+    title: "Pasta alla Gricia",
+    ingredients: ["Pasta", "Guanciale", "Pecorino", "Pepe"],
+    instructions: "Rosola il guanciale. Unisci la pasta e il pecorino con acqua di cottura per creare una crema.",
+    category: "Pasta"
+  },
+  {
+    id: 79,
+    title: "Baccalà alla Vicentina",
+    ingredients: ["Baccalà", "Cipolla", "Latte", "Farina", "Parmigiano", "Acciughe"],
+    instructions: "Infarina il baccalà. Cuoci lentamente con cipolla, acciughe e latte finché cremoso.",
+    category: "Secondi"
+  },
+  {
+    id: 80,
+    title: "Pasta all'Amatriciana",
+    ingredients: ["Pasta", "Guanciale", "Pomodoro", "Pecorino", "Peperoncino"],
+    instructions: "Rosola il guanciale. Aggiungi pomodoro e peperoncino. Condisci la pasta con pecorino.",
+    category: "Pasta"
+  },
+  {
+    id: 81,
+    title: "Tagliata al Rosmarino",
+    instructions: "Cuoci la carne intera, poi tagliala a fette. Condisci con olio riscaldato al rosmarino.",
+    ingredients: ["Manzo", "Rosmarino", "Aglio", "Olio", "Sale"],
+    category: "Secondi"
+  },
+  {
+    id: 82,
+    title: "Pasta alla Puttanesca",
+    ingredients: ["Pasta", "Pomodoro", "Olive", "Capperi", "Acciughe", "Aglio"],
+    instructions: "Soffriggi aglio e acciughe. Aggiungi pomodoro, olive e capperi. Cuoci e condisci.",
+    category: "Pasta"
+  },
+  {
+    id: 83,
+    title: "Scaloppine ai Funghi",
+    ingredients: ["Pollo", "Funghi", "Farina", "Burro", "Vino Bianco", "Prezzemolo"],
+    instructions: "Infarina il pollo. Cuoci con funghi e burro. Sfuma col vino e lascia addensare.",
+    category: "Secondi"
+  },
+  {
+    id: 84,
+    title: "Zuppa di Cozze",
+    ingredients: ["Cozze", "Pomodoro", "Aglio", "Olio", "Pane", "Prezzemolo"],
+    instructions: "Apri le cozze in un sugo di pomodoro piccante. Servi con fette di pane tostato.",
+    category: "Zuppe"
+  },
+  {
+    id: 85,
+    title: "Ravioli Burro e Salvia",
+    ingredients: ["Ravioli", "Burro", "Salvia", "Parmigiano"],
+    instructions: "Cuoci i ravioli. Salta in padella con burro spumeggiante e foglie di salvia fresca.",
+    category: "Pasta"
+  },
+  {
+    id: 86,
+    title: "Sogliola al Forno",
+    ingredients: ["Sogliola", "Pomodoro", "Olive", "Capperi", "Olio"],
+    instructions: "Metti il pesce in una teglia con pomodorini, olive e capperi. Inforna a 180°C per 15 min.",
+    category: "Secondi"
+  },
+  {
+    id: 87,
+    title: "Pasta con le Sarde",
+    ingredients: ["Pasta", "Sarde", "Finocchietto", "Uvetta", "Pinoli", "Zafferano"],
+    instructions: "Crea un condimento con sarde fresche, finocchietto e aromi dolci-salati. Unisci alla pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 88,
+    title: "Cotoletta alla Milanese",
+    ingredients: ["Vitello", "Uova", "Pane", "Burro", "Sale"],
+    instructions: "Impana la carne nell'uovo e nel pane. Friggi rigorosamente nel burro chiarificato.",
+    category: "Secondi"
+  },
+  {
+    id: 89,
+    title: "Pasta e Patate",
+    ingredients: ["Pasta", "Patate", "Cipolla", "Sedano", "Carota", "Parmigiano"],
+    instructions: "Cuoci le patate a cubetti con gli odori. Aggiungi la pasta e manteca con tanto parmigiano.",
+    category: "Primi"
+  },
+  {
+    id: 90,
+    title: "Ossobuco alla Milanese",
+    ingredients: ["Vitello", "Farina", "Cipolla", "Brodo", "Vino Bianco", "Limone", "Prezzemolo"],
+    instructions: "Cuoci la carne lentamente con cipolla e brodo. Aggiungi la gremolada (limone e prezzemolo) alla fine.",
+    category: "Secondi"
+  },
+  {
+    id: 91,
+    title: "Zucchine Ripiene",
+    ingredients: ["Zucchine", "Carne Macinata", "Uova", "Pane", "Parmigiano"],
+    instructions: "Svuota le zucchine. Riempile con carne, uova e pane. Inforna finché dorate.",
+    category: "Secondi"
+  },
+  {
+    id: 92,
+    title: "Peperonata",
+    ingredients: ["Peperoni", "Cipolla", "Pomodoro", "Olio", "Sale"],
+    instructions: "Stufa peperoni, cipolla e pomodoro lentamente con olio finché diventano morbidissimi.",
+    category: "Contorni"
+  },
+  {
+    id: 93,
+    title: "Frittura di Paranza",
+    ingredients: ["Pesce Piccolo", "Farina", "Olio", "Sale", "Limone"],
+    instructions: "Infarina pesciolini misti e friggili in olio bollente finché croccantissimi.",
+    category: "Secondi"
+  },
+  {
+    id: 94,
+    title: "Insalata di Riso",
+    ingredients: ["Riso", "Sottaceti", "Tonno", "Uova", "Wurstel", "Olio"],
+    instructions: "Lessa il riso. Raffredda e unisci tutti gli ingredienti sminuzzati. Ideale fredda.",
+    category: "Primi"
+  },
+  {
+    id: 95,
+    title: "Pollo ai Peperoni",
+    ingredients: ["Pollo", "Peperoni", "Pomodoro", "Cipolla", "Vino Bianco"],
+    instructions: "Rosola il pollo. Aggiungi i peperoni e il pomodoro. Sfuma e cuoci finché tenero.",
+    category: "Secondi"
+  },
+  {
+    id: 96,
+    title: "Pasta alla Trapeziana",
+    ingredients: ["Pasta", "Tonno", "Pomodoro", "Olive", "Capperi", "Peperoncino"],
+    instructions: "Un sugo veloce mediterraneo con tonno e olive. Salta la pasta e servi.",
+    category: "Pasta"
+  },
+  {
+    id: 97,
+    title: "Pesce Spada alla Siciliana",
+    ingredients: ["Pesce Spada", "Pomodoro", "Olive", "Capperi", "Origano"],
+    instructions: "Cuoci il pesce in padella con pomodorini, olive, capperi e un pizzico di origano.",
+    category: "Secondi"
+  },
+  {
+    id: 98,
+    title: "Salsiccia e Friarielli",
+    ingredients: ["Salsiccia", "Friarielli", "Aglio", "Olio", "Peperoncino"],
+    instructions: "Cuoci le salsicce. Ripassa i friarielli in padella con aglio, olio e peperoncino.",
+    category: "Secondi"
+  },
+  {
+    id: 99,
+    title: "Pasta al Forno Semplice",
+    ingredients: ["Pasta", "Pomodoro", "Mozzarella", "Parmigiano", "Uova"],
+    instructions: "Mescola la pasta col sugo. Aggiungi formaggi e uova sode a pezzi. Inforna e gratina.",
+    category: "Pasta"
+  },
+  {
+    id: 100,
+    title: "Budino al Cioccolato",
+    ingredients: ["Cioccolato", "Latte", "Zucchero", "Maizena", "Burro"],
+    instructions: "Scalda latte e zucchero. Aggiungi maizena e cioccolato. Cuoci finché denso e raffredda.",
+    category: "Dolci"
+  },
+  {
+    id: 101,
+    title: "Stufato di Manzo",
+    ingredients: ["Manzo", "Patate", "Carote", "Cipolla", "Vino Rosso", "Brodo"],
+    instructions: "Cuoci la carne a pezzi lentamente con verdure, vino e brodo per almeno 2 ore.",
+    category: "Secondi"
+  },
+  {
+    id: 102,
+    title: "Insalata Waldorf",
+    ingredients: ["Mele", "Sedano", "Noci", "Uvetta", "Maionese"],
+    instructions: "Taglia mele e sedano a cubetti. Unisci noci e uvetta. Condisci con maionese leggera.",
+    category: "Insalate"
+  },
+  {
+    id: 103,
+    title: "Torta Salata di Verdure",
+    ingredients: ["Pasta Sfoglia", "Zucchine", "Peperoni", "Uova", "Panna"],
+    instructions: "Metti le verdure saltate nella sfoglia. Copri con mix di uova e panna. Inforna.",
+    category: "Torte Salate"
+  },
+  {
+    id: 104,
+    title: "Risotto alla Zucca",
+    ingredients: ["Riso", "Zucca", "Cipolla", "Parmigiano", "Amaretti"],
+    instructions: "Cuoci la zucca con cipolla. Tosta il riso e unisci la zucca. Manteca con parmigiano.",
+    category: "Primi"
+  },
+  {
+    id: 105,
+    title: "Pollo alle Mandorle",
+    ingredients: ["Pollo", "Mandorle", "Soia", "Zenzero", "Cipolla"],
+    instructions: "Salta il pollo con cipolla e zenzero. Aggiungi mandorle tostate e salsa di soia.",
+    category: "Secondi"
+  },
+  {
+    id: 106,
+    title: "Zuppa di Miso Semplificata",
+    ingredients: ["Miso", "Tofu", "Alghe", "Cipollotto", "Brodo"],
+    instructions: "Sciogli il miso nel brodo caldo. Aggiungi cubetti di tofu, alghe e cipollotto fresco.",
+    category: "Zuppe"
+  },
+  {
+    id: 107,
+    title: "Gnocchi alla Romana",
+    ingredients: ["Semolino", "Latte", "Burro", "Parmigiano", "Uova"],
+    instructions: "Cuoci il semolino nel latte. Forma dei dischi. Copri di burro e parmigiano e gratina.",
+    category: "Primi"
+  },
+  {
+    id: 108,
+    title: "Frittata di Pasta",
+    ingredients: ["Pasta Avanzata", "Uova", "Parmigiano", "Olio", "Salame"],
+    instructions: "Mescola la pasta con uova, parmigiano e salame. Cuoci in padella come una frittata.",
+    category: "Piatti Unici"
+  },
+  {
+    id: 109,
+    title: "Pappa al Pomodoro",
+    ingredients: ["Pane", "Pomodoro", "Aglio", "Olio", "Basilico", "Brodo"],
+    instructions: "Cuoci pane raffermo e pomodoro con aglio e brodo finché diventa una pappa densa.",
+    category: "Zuppe"
+  },
+  {
+    id: 110,
+    title: "Canederli",
+    ingredients: ["Pane", "Latte", "Uova", "Speck", "Cipolla", "Brodo"],
+    instructions: "Forma palle di pane, latte, uova e speck. Cuoci nel brodo bollente finché galleggiano.",
+    category: "Primi"
+  },
+  {
+    id: 111,
+    title: "Strudel di Mele Semplice",
+    ingredients: ["Pasta Sfoglia", "Mele", "Uvetta", "Pinoli", "Zucchero", "Cannella"],
+    instructions: "Farcisci la sfoglia con mele, uvetta e aromi. Arrotola e inforna finché dorato.",
+    category: "Dolci"
+  },
+  {
+    id: 112,
+    title: "Insalata Russa",
+    ingredients: ["Patate", "Carote", "Piselli", "Maionese", "Uova"],
+    instructions: "Lessa le verdure a cubetti. Unisci alla maionese e decora con uova sode.",
+    category: "Antipasti"
+  },
+  {
+    id: 113,
+    title: "Polenta e Salsiccia",
+    ingredients: ["Farina di Mais", "Acqua", "Salsiccia", "Pomodoro", "Cipolla"],
+    instructions: "Cuoci la polenta. Servi coperta da un sugo di salsiccia e pomodoro.",
+    category: "Piatti Unici"
+  },
+  {
+    id: 114,
+    title: "Baccalà Mantecato",
+    ingredients: ["Baccalà", "Latte", "Olio", "Aglio", "Prezzemolo"],
+    instructions: "Lessa il baccalà nel latte. Frulla con olio a filo finché diventa una spuma bianca.",
+    category: "Antipasti"
+  },
+  {
+    id: 115,
+    title: "Pasta alla Checca",
+    ingredients: ["Pasta", "Pomodoro", "Mozzarella", "Basilico", "Olio", "Olive"],
+    instructions: "Condisci la pasta con ingredienti freschi a crudo. Ideale in estate.",
+    category: "Pasta"
+  },
+  {
+    id: 116,
+    title: "Pollo al Forno con Patate",
+    ingredients: ["Pollo", "Patate", "Rosmarino", "Aglio", "Olio"],
+    instructions: "Metti pollo e patate in teglia con aromi. Inforna a 200°C finché croccante.",
+    category: "Secondi"
+  },
+  {
+    id: 117,
+    title: "Zuppa di Zucca e Carote",
+    ingredients: ["Zucca", "Carote", "Cipolla", "Olio", "Zenzero"],
+    instructions: "Cuoci zucca e carote. Frulla con un tocco di zenzero fresco per un gusto orientale.",
+    category: "Zuppe"
+  },
+  {
+    id: 118,
+    title: "Pasta con i Broccoli",
+    ingredients: ["Pasta", "Broccoli", "Aglio", "Olio", "Peperoncino", "Acciughe"],
+    instructions: "Lessa i broccoli con la pasta. Ripassa tutto in padella con aglio e acciughe.",
+    category: "Pasta"
+  },
+  {
+    id: 119,
+    title: "Fegato alla Veneziana",
+    ingredients: ["Fegato", "Cipolla", "Burro", "Olio", "Aceto"],
+    instructions: "Cuoci tantissima cipolla lentamente. Aggiungi il fegato a strisce e cuoci pochissimo.",
+    category: "Secondi"
+  },
+  {
+    id: 120,
+    title: "Risotto alla Marinara",
+    ingredients: ["Riso", "Pomodoro", "Aglio", "Origano", "Cozze", "Vongole"],
+    instructions: "Prepara un risotto rosso con frutti di mare e profumo di origano.",
+    category: "Primi"
+  },
+  {
+    id: 121,
+    title: "Crema Catalana",
+    ingredients: ["Latte", "Uova", "Zucchero", "Cannella", "Limone", "Maizena"],
+    instructions: "Crea una crema densa. Raffredda e caramella lo zucchero in superficie prima di servire.",
+    category: "Dolci"
+  },
+  {
+    id: 122,
+    title: "Pasta Integrale alle Verdure",
+    ingredients: ["Pasta", "Zucchine", "Melanzane", "Pomodoro", "Ricotta"],
+    instructions: "Salta le verdure in padella. Unisci alla pasta integrale e manteca con ricotta.",
+    category: "Pasta"
+  },
+  {
+    id: 123,
+    title: "Bocconcini di Pollo al Limone",
+    ingredients: ["Pollo", "Farina", "Limone", "Burro", "Salvia"],
+    instructions: "Infarina il pollo a cubetti. Cuoci nel burro e sfuma con abbondante limone.",
+    category: "Secondi"
+  },
+  {
+    id: 124,
+    title: "Insalata di Patate Tedesca",
+    ingredients: ["Patate", "Cipolla", "Maionese", "Senape", "Erba Cipollina"],
+    instructions: "Lessa le patate. Condisci con un mix di maionese, senape e cipolla fresca.",
+    category: "Insalate"
+  },
+  {
+    id: 125,
+    title: "Pasta con Crema di Peperoni",
+    ingredients: ["Pasta", "Peperoni", "Panna", "Parmigiano", "Cipolla"],
+    instructions: "Frulla i peperoni cotti con panna e parmigiano. Condisci la pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 126,
+    title: "Filetto al Pepe Verde",
+    ingredients: ["Manzo", "Panna", "Pepe Verde", "Burro", "Brandy"],
+    instructions: "Cuoci la carne. Sfuma col brandy. Aggiungi panna e pepe verde finché denso.",
+    category: "Secondi"
+  },
+  {
+    id: 127,
+    title: "Minestra di Riso e Prezzemolo",
+    ingredients: ["Riso", "Brodo", "Prezzemolo", "Parmigiano", "Burro"],
+    instructions: "Cuoci il riso nel brodo. Aggiungi tanto prezzemolo tritato e manteca.",
+    category: "Primi"
+  },
+  {
+    id: 128,
+    title: "Tortino al Cioccolato dal Cuore Caldo",
+    ingredients: ["Cioccolato", "Burro", "Zucchero", "Uova", "Farina"],
+    instructions: "Inforna piccoli tortini a 200°C per soli 10 minuti per lasciare il cuore liquido.",
+    category: "Dolci"
+  },
+  {
+    id: 129,
+    title: "Pasta all'Arrabbiata",
+    ingredients: ["Pasta", "Pomodoro", "Peperoncino", "Aglio", "Prezzemolo"],
+    instructions: "Crea un sugo di pomodoro molto piccante con aglio. Condisci la pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 130,
+    title: "Salmone in Crosta di Patate",
+    ingredients: ["Salmone", "Patate", "Olio", "Sale", "Timo"],
+    instructions: "Copri il salmone con fettine sottilissime di patate. Inforna finché le patate sono croccanti.",
+    category: "Secondi"
+  },
+  {
+    id: 131,
+    title: "Insalata di Finocchi e Arance",
+    ingredients: ["Finocchi", "Arance", "Olive Nere", "Olio", "Sale"],
+    instructions: "Affetta finemente i finocchi e le arance. Unisci le olive e condisci con olio.",
+    category: "Insalate"
+  },
+  {
+    id: 132,
+    title: "Pasta con Piselli e Pancetta",
+    ingredients: ["Pasta", "Piselli", "Pancetta", "Cipolla", "Olio"],
+    instructions: "Soffriggi cipolla e pancetta. Aggiungi piselli. Unisci alla pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 133,
+    title: "Pollo alla Senape",
+    ingredients: ["Pollo", "Senape", "Panna", "Miele", "Cipolla"],
+    instructions: "Cuoci il pollo. Aggiungi una salsa fatta di senape, panna e un filo di miele.",
+    category: "Secondi"
+  },
+  {
+    id: 134,
+    title: "Zuppa di Fagioli Neri",
+    ingredients: ["Fagioli", "Cipolla", "Aglio", "Cumino", "Pomodoro"],
+    instructions: "Stufa i fagioli neri con spezie e pomodoro finché densi. Servi con riso.",
+    category: "Zuppe"
+  },
+  {
+    id: 135,
+    title: "Riso Saltato con Gamberi",
+    ingredients: ["Riso", "Gamberi", "Zucchine", "Uova", "Soia"],
+    instructions: "Salta il riso con gamberi, zucchine a julienne e uovo. Condisci con soia.",
+    category: "Primi"
+  },
+  {
+    id: 136,
+    title: "Pasta al Salmone Semplice",
+    ingredients: ["Pasta", "Salmone", "Panna", "Erba Cipollina", "Burro"],
+    instructions: "Salta il salmone nel burro. Aggiungi panna ed erba cipollina. Unisci la pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 137,
+    title: "Uova Ripiene",
+    ingredients: ["Uova", "Maionese", "Tonno", "Capperi", "Acciughe"],
+    instructions: "Lessa le uova. Mescola i tuorli con tonno e maionese. Riempi gli albumi.",
+    category: "Antipasti"
+  },
+  {
+    id: 138,
+    title: "Cous Cous di Pollo",
+    ingredients: ["Cous Cous", "Pollo", "Verdure Miste", "Spezie"],
+    instructions: "Sgrana il cous cous. Unisci a pollo e verdure saltate con spezie orientali.",
+    category: "Piatti Unici"
+  },
+  {
+    id: 139,
+    title: "Frittata di Zucchine",
+    ingredients: ["Uova", "Zucchine", "Cipolla", "Parmigiano", "Olio"],
+    instructions: "Salta le zucchine con la cipolla. Unisci alle uova e cuoci la frittata.",
+    category: "Secondi"
+  },
+  {
+    id: 140,
+    title: "Pera al Vino Rosso",
+    ingredients: ["Pere", "Vino Rosso", "Zucchero", "Cannella", "Chiodi di Garofano"],
+    instructions: "Cuoci le pere nel vino con zucchero e spezie finché tenere e il vino è uno sciroppo.",
+    category: "Dolci"
+  },
+  {
+    id: 141,
+    title: "Pasta alla Vodka",
+    ingredients: ["Pasta", "Pomodoro", "Panna", "Vodka", "Pancetta", "Cipolla"],
+    instructions: "Soffriggi cipolla e pancetta. Aggiungi pomodoro e vodka. Sfuma e aggiungi panna.",
+    category: "Pasta"
+  },
+  {
+    id: 142,
+    title: "Merluzzo in Umido",
+    ingredients: ["Merluzzo", "Pomodoro", "Olive", "Capperi", "Patate"],
+    instructions: "Cuoci il pesce con pomodoro e patate a fette in un tegame coperto.",
+    category: "Secondi"
+  },
+  {
+    id: 143,
+    title: "Insalata di Pollo Classica",
+    ingredients: ["Pollo", "Sedano", "Maionese", "Mais", "Lattuga"],
+    instructions: "Sfilaccia il pollo cotto. Unisci a sedano, mais e maionese. Servi freddo.",
+    category: "Insalate"
+  },
+  {
+    id: 144,
+    title: "Pasta ai Quattro Formaggi",
+    ingredients: ["Pasta", "Gorgonzola", "Parmigiano", "Pecorino", "Emmental", "Latte"],
+    instructions: "Sciogli i formaggi nel latte finché cremosi. Condisci la pasta.",
+    category: "Pasta"
+  },
+  {
+    id: 145,
+    title: "Frittata di Patate",
+    ingredients: ["Uova", "Patate", "Cipolla", "Olio", "Sale"],
+    instructions: "Cuoci prima le patate e la cipolla. Unisci alle uova e cuoci la frittata alta.",
+    category: "Secondi"
+  },
+  {
+    id: 146,
+    title: "Risotto al Vino Rosso",
+    ingredients: ["Riso", "Vino Rosso", "Cipolla", "Burro", "Parmigiano"],
+    instructions: "Sfuma il riso con abbondante vino rosso e cuoci col brodo. Manteca bene.",
+    category: "Primi"
+  },
+  {
+    id: 147,
+    title: "Zuppa di Ceci e Rosmarino",
+    ingredients: ["Ceci", "Rosmarino", "Aglio", "Olio", "Pane"],
+    instructions: "Frulla una parte di ceci per densità. Servi con olio e rosmarino fresco.",
+    category: "Zuppe"
+  },
+  {
+    id: 148,
+    title: "Pasta al Forno con Zucchine",
+    ingredients: ["Pasta", "Zucchine", "Besciamella", "Parmigiano", "Mozzarella"],
+    instructions: "Alterna pasta, zucchine e besciamella. Gratina al forno finché croccante.",
+    category: "Pasta"
+  },
+  {
+    id: 149,
+    title: "Macedonia di Frutta",
+    ingredients: ["Frutta Mista", "Limone", "Zucchero", "Menta"],
+    instructions: "Taglia la frutta a pezzi. Condisci con limone, zucchero e foglie di menta.",
+    category: "Dolci"
+  },
+  {
+    id: 150,
+    title: "Uovo in Camicia",
+    ingredients: ["Uova", "Pane", "Aceto", "Sale", "Pepe"],
+    instructions: "Cuoci l'uovo in acqua acidulata bollente creando un vortice. Servi su pane tostato.",
+    category: "Secondi"
   }
 ];
+
