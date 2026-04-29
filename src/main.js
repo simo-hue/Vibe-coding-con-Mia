@@ -69,11 +69,14 @@ function updateSliderTrack() {
   const val = timeSlider.value;
   const percentage = ((val - min) / (max - min)) * 100;
   
-  // Professional gradient: slightly lighter at the start, primary at the thumb
+  // Gourmet Dial: Vibrant primary fill with inner depth
   timeSlider.style.background = `linear-gradient(to right, 
-    #34d399 0%, 
+    var(--primary-color) 0%, 
     var(--primary-color) ${percentage}%, 
-    rgba(255, 255, 255, 0.05) ${percentage}%)`;
+    rgba(0, 0, 0, 0.3) ${percentage}%)`;
+    
+  // Add reflecting glow based on percentage
+  timeSlider.style.boxShadow = `inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 ${percentage/5}px var(--primary-glow)`;
 }
 
 // Init

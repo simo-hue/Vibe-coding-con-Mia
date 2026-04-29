@@ -8,6 +8,7 @@
   --text-main: #f3f4f6;
   --text-muted: #9ca3af;
   --font-family: 'Outfit', sans-serif;
+  --accent-bronze: #d4af37;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -355,67 +356,66 @@ button.primary:hover {
   transform: scale(1.1);
 }
 
-/* Professional Range Slider Styling */
+/* Gourmet Dial Range Slider Styling (Proposta B) */
 .slider-container {
   width: 100%;
-  padding: 0 5px;
+  padding: 1rem 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .slider-labels {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin-top: 12px;
+  padding: 0 5px;
+  font-size: 0.75rem;
+  font-weight: 300;
   color: var(--text-muted);
-  opacity: 0.6;
+  font-family: 'Outfit', sans-serif;
 }
 
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 2px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.05);
   outline: none;
   cursor: pointer;
   transition: var(--transition);
 }
 
-/* Custom Fill logic handled via JS background linear-gradient */
-
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  background: white;
-  border: 3px solid var(--primary-color);
+  width: 24px;
+  height: 24px;
+  background: #fdfdfd; /* Milky white */
+  border: 2px solid var(--accent-bronze);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4), 0 4px 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease;
-  margin-top: 0; /* Align with track */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: -8px; /* Correct alignment for 8px track */
 }
 
 input[type=range]:hover::-webkit-slider-thumb {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6), 0 6px 12px rgba(0, 0, 0, 0.6);
+  transform: scale(1.15) rotate(5deg);
 }
 
 input[type=range]:active::-webkit-slider-thumb {
   transform: scale(0.95);
-  background: var(--primary-color);
-  border-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
 }
 
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
-  height: 4px;
+  height: 8px;
   cursor: pointer;
-  background: transparent; /* Fill handled by input background */
+  background: transparent;
   border: none;
 }
 
