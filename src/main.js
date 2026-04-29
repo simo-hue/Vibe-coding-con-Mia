@@ -62,6 +62,15 @@ const recipeModal = document.getElementById('recipe-modal');
 const closeModal = document.getElementById('close-modal');
 const modalBody = document.getElementById('modal-body');
 
+function updateSliderTrack() {
+  if (!timeSlider) return;
+  const min = timeSlider.min || 5;
+  const max = timeSlider.max || 120;
+  const val = timeSlider.value;
+  const percentage = ((val - min) / (max - min)) * 100;
+  timeSlider.style.background = `linear-gradient(to right, var(--primary-color) ${percentage}%, rgba(255, 255, 255, 0.1) ${percentage}%)`;
+}
+
 // Init
 function init() {
   loadState();
@@ -70,6 +79,7 @@ function init() {
   if (timeSlider) {
     timeSlider.value = maxTime;
     timeVal.innerText = maxTime;
+    updateSliderTrack();
   }
 
   // Modal close events
@@ -111,6 +121,7 @@ function init() {
     timeSlider.addEventListener('input', (e) => {
       maxTime = parseInt(e.target.value);
       timeVal.innerText = maxTime;
+      updateSliderTrack();
       saveState();
       renderResults();
     });
