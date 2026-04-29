@@ -7,7 +7,7 @@
     - Design: Glassmorphism, Dark Theme, Custom Background Image.
     - Logic: Algoritmo intelligente con "Smart Filtering" e integrazione Spesa/Frigo:
         1.  **Vista Dettagliata Ricetta**: Modal premium con descrizione, porzioni, ingredienti e step numerati.
-        2.  **Filtro Tempo Dinamico**: Slider per filtrare ricette con barra colorata progressiva in tempo reale.
+        2.  **Slider Professionale Premium**: Controllo del tempo con design industriale, etichette di contesto (5m-120m) e gradienti sfumati ad alta precisione.
         3.  **Persistenza Dati**: Salvataggio automatico di ingredienti, spesa e preferenze.
         4.  **Match Parziali**: Mostra ricette con >40% di ingredienti comuni.
         5.  **Ingrediente Principale Obbligatorio**: Controllo rigoroso sul "core ingredient".
