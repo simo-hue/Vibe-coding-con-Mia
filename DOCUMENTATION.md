@@ -6,11 +6,12 @@
     - Framework: Vite (Vanilla JS).
     - Design: Glassmorphism, Dark Theme, Custom Background Image.
     - Logic: Algoritmo intelligente con "Smart Filtering" e integrazione Spesa/Frigo:
-        1.  **Match Parziali**: Mostra ricette con >40% di ingredienti comuni.
-        2.  **Ingrediente Principale Obbligatorio**: Controllo rigoroso sulla presenza dell'ingrediente core.
-        3.  **Automazione Spesa**: Pulsante "Segna da fare" per aggiungere mancanze alla spesa.
-        4.  **Check-in Ingredienti**: Pulsante "Tick" nella lista spesa che sposta automaticamente l'ingrediente nel Frigo.
-        5.  **Gestione Tab**: Navigazione fluida tra Ricette e Lista Spesa.
+        1.  **Persistenza Dati**: Tutti gli ingredienti e la lista spesa vengono salvati automaticamente nel browser (`localStorage`).
+        2.  **Match Parziali**: Mostra ricette con >40% di ingredienti comuni.
+        3.  **Ingrediente Principale Obbligatorio**: Controllo rigoroso sulla presenza dell'ingrediente core.
+        4.  **Automazione Spesa**: Pulsante "Segna da fare" per aggiungere mancanze alla spesa.
+        5.  **Check-in Ingredienti**: Pulsante "Tick" nella lista spesa che sposta automaticamente l'ingrediente nel Frigo.
+        6.  **Gestione Tab**: Navigazione fluida tra Ricette e Lista Spesa.
     - Database: Imponente database di 150 ricette che copre ogni categoria e cucina.
     - Assets: Immagine di sfondo generata tramite AI (`public/bg.png`).
 
