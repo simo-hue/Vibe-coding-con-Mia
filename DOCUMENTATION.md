@@ -7,13 +7,14 @@
     - Design: Glassmorphism, Dark Theme, Custom Background Image.
     - Logic: Algoritmo intelligente con "Smart Filtering" e integrazione Spesa/Frigo:
         1.  **Vista Dettagliata Ricetta**: Modal premium con descrizione, porzioni, ingredienti e step numerati.
-        2.  **Slider Gourmet Dial (V2)**: Design di lusso con track incassata a precisione millimetrica, fill dinamico senza artefatti visivi e thumb satinato con accenti bronzo.
-        3.  **Persistenza Dati**: Salvataggio automatico di ingredienti, spesa e preferenze.
-        4.  **Match Parziali**: Mostra ricette con >40% di ingredienti comuni.
-        5.  **Ingrediente Principale Obbligatorio**: Controllo rigoroso sul "core ingredient".
-        6.  **Automazione Spesa**: Integrazione diretta tra ricette mancate e lista spesa.
-        7.  **Check-in Veloci**: Possibilità di spostare oggetti dalla spesa al frigo con un click.
-        8.  **Gestione Tab**: Navigazione fluida tra Ricette e Lista Spesa.
+        2.  **Slider Gourmet Dial (V2)**: Design di lusso con track incassata a precisione millimetrica e fill dinamico.
+        3.  **Dispensa Base Personalizzabile**: Possibilità di aggiungere e rimuovere ingredienti base personalizzati oltre a quelli suggeriti.
+        4.  **Persistenza Dati**: Salvataggio automatico di ingredienti, spesa e preferenze.
+        5.  **Match Parziali**: Mostra ricette con >40% di ingredienti comuni.
+        6.  **Ingrediente Principale Obbligatorio**: Controllo rigoroso sul "core ingredient".
+        7.  **Automazione Spesa**: Integrazione diretta tra ricette mancate e lista spesa.
+        8.  **Check-in Veloci**: Possibilità di spostare oggetti dalla spesa al frigo con un click.
+        9.  **Gestione Tab**: Navigazione fluida tra Ricette e Lista Spesa.
     - Database: Imponente database di 151 ricette (ora con tempi di preparazione inclusi).
     - Assets: Immagine di sfondo generata tramite AI (`public/bg.png`).
 
